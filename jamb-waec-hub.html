@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 Candidate Hub — WAEC · JAMB · Admission</title>
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   2026 CANDIDATE HUB
+   Aesthetic: Premium Nigerian Institution
+   Dark navy + emerald + gold
+   Three paths. One destination. Maximum viral.
+═══════════════════════════════════════════ */
+:root {
+  --bg:    #06090F;
+  --bg2:   #080D16;
+  --bg3:   #0C1220;
+  --navy:  #0D1B2A;
+  --b1:    #0A3D62;
+  --b2:    #1565C0;
+  --b3:    #1E88E5;
+  --sky:   #64B5F6;
+  --g1:    #0B4D2A;
+  --g2:    #0D7A3E;
+  --g3:    #1AAF58;
+  --gold:  #B8860B;
+  --gold2: #E5A800;
+  --gold3: #FFD54F;
+  --cream: #F8F4E8;
+  --w:     #FFFFFF;
+  --muted: rgba(248,244,232,0.45);
+  --red:   #C0392B;
+  --wa:    #25D366;
+  --tg:    #2AABEE;
+  --bd:    rgba(255,255,255,0.06);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  background: var(--bg);
+  color: var(--cream);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ── BACKGROUND ── */
+.bg-mesh {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 100% 60% at 50% -5%, rgba(13,123,62,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 70% 50% at -5% 50%, rgba(21,101,192,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 45% at 105% 85%, rgba(184,134,11,0.12) 0%, transparent 50%),
+    linear-gradient(180deg, #06090F 0%, #040608 100%);
+}
+.bg-dots {
+  position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: radial-gradient(rgba(232,168,0,0.08) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.orb1 { position:fixed; width:700px; height:700px; border-radius:50%; top:-250px; left:-200px; z-index:0; pointer-events:none; background:rgba(11,77,42,0.22); filter:blur(100px); animation:ob1 22s ease-in-out infinite alternate; }
+.orb2 { position:fixed; width:500px; height:500px; border-radius:50%; bottom:-150px; right:-150px; z-index:0; pointer-events:none; background:rgba(21,101,192,0.15); filter:blur(90px); animation:ob2 17s ease-in-out infinite alternate; }
+.orb3 { position:fixed; width:300px; height:300px; border-radius:50%; top:40%; left:50%; transform:translate(-50%,-50%); z-index:0; pointer-events:none; background:rgba(184,134,11,0.07); filter:blur(80px); animation:ob3 12s ease-in-out infinite alternate; }
+@keyframes ob1 { from{transform:translate(0,0)} to{transform:translate(60px,80px)} }
+@keyframes ob2 { from{transform:translate(0,0)} to{transform:translate(-50px,-60px)} }
+@keyframes ob3 { from{transform:scale(1)} to{transform:scale(1.5) translate(-20px,10px)} }
+
+/* ── NOTIFICATIONS — DROP FROM TOP ── */
+.notif-zone {
+  position:fixed; top:0; left:0; right:0;
+  z-index:9990; pointer-events:none;
+  display:flex; flex-direction:column; align-items:center;
+}
+.notif {
+  width:100%; max-width:480px;
+  background:rgba(4,8,14,0.97);
+  border-bottom:3px solid var(--gold2);
+  border-left:4px solid var(--g3);
+  padding:12px 16px;
+  display:flex; align-items:flex-start; gap:11px;
+  backdrop-filter:blur(24px);
+  box-shadow:0 6px 30px rgba(0,0,0,0.8);
+  transform:translateY(-110%); opacity:0;
+  transition:transform 0.5s cubic-bezier(0.34,1.56,0.64,1), opacity 0.4s ease;
+}
+.notif.show { transform:translateY(0); opacity:1; }
+.notif.hide { transform:translateY(-115%); opacity:0; transition:transform 0.3s ease, opacity 0.3s ease; }
+.n-av { width:34px; height:34px; border-radius:50%; background:rgba(11,77,42,0.5); display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+.n-body { flex:1; }
+.n-badge { font-size:9px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold2); font-family:'DM Mono',monospace; margin-bottom:2px; opacity:0.7; }
+.n-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:2px; }
+.n-name { font-size:12px; font-weight:800; color:var(--cream); }
+.n-time { font-size:10px; color:rgba(232,168,0,0.5); font-family:'DM Mono',monospace; }
+.n-msg  { font-size:12px; color:rgba(248,244,232,0.6); line-height:1.5; }
+.n-msg .nh { color:var(--gold2); font-weight:700; }
+.n-msg .ng { color:var(--g3); font-weight:700; }
+.n-msg .nb { color:var(--sky); font-weight:700; }
+
+/* ── TICKER ── */
+.ticker { background:linear-gradient(90deg,var(--gold),var(--gold2),var(--gold3),var(--gold2),var(--gold)); background-size:400% 100%; animation:tickBG 4s linear infinite; overflow:hidden; padding:8px 0; position:relative; z-index:10; }
+@keyframes tickBG { from{background-position:0%} to{background-position:200%} }
+.ti { display:flex; white-space:nowrap; animation:tickS 28s linear infinite; }
+.ti span { font-size:11px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:#000; padding:0 28px; flex-shrink:0; font-family:'DM Mono',monospace; }
+.ti span::after { content:'◆'; margin-left:28px; opacity:.3; }
+@keyframes tickS { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+/* ── HEADER ── */
+.hdr {
+  position:relative; z-index:10;
+  background:linear-gradient(180deg, rgba(13,27,42,0.98) 0%, rgba(8,17,28,0.98) 100%);
+  border-bottom:1px solid rgba(232,168,0,0.25);
+  backdrop-filter:blur(20px);
+}
+.hdr-gold { height:5px; background:linear-gradient(90deg,var(--g3),var(--gold2),var(--b3),var(--gold2),var(--g3)); background-size:300% 100%; animation:shimmer 4s linear infinite; }
+@keyframes shimmer { from{background-position:0%} to{background-position:200%} }
+.hdr-body { display:flex; align-items:center; justify-content:space-between; padding:13px 18px; }
+.hdr-brand { display:flex; align-items:center; gap:11px; }
+.hdr-seal { width:46px; height:46px; border-radius:12px; background:linear-gradient(135deg,var(--gold),var(--gold2)); display:flex; align-items:center; justify-content:center; font-size:24px; flex-shrink:0; box-shadow:0 0 0 2px rgba(232,168,0,0.3), 0 4px 20px rgba(184,134,11,0.3); }
+.hdr-t1 { font-size:10px; font-weight:600; color:rgba(255,255,255,0.5); letter-spacing:2.5px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.hdr-t2 { font-size:15px; font-weight:800; color:var(--w); }
+.hdr-right { text-align:right; }
+.hdr-live { display:flex; align-items:center; justify-content:flex-end; gap:6px; margin-bottom:2px; }
+.hdr-dot { width:7px; height:7px; border-radius:50%; background:var(--gold2); box-shadow:0 0 8px var(--gold2); animation:blink 1s infinite; }
+.hdr-ltxt { font-size:10px; font-weight:600; color:rgba(255,255,255,0.4); font-family:'DM Mono',monospace; letter-spacing:1px; }
+.hdr-num { font-size:20px; font-weight:800; color:var(--gold2); font-family:'DM Mono',monospace; }
+
+/* ── ANIMS ── */
+@keyframes rise   { from{transform:translateY(22px);opacity:0} to{transform:translateY(0);opacity:1} }
+@keyframes pop    { from{transform:scale(.3) rotate(-8deg);opacity:0} to{transform:scale(1) rotate(0);opacity:1} }
+@keyframes blink  { 0%,100%{opacity:1} 50%{opacity:.1} }
+@keyframes spin   { to{transform:rotate(360deg)} }
+@keyframes float  { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-9px)} }
+@keyframes glow   { 0%,100%{box-shadow:0 0 20px var(--gc,rgba(13,122,62,.4)),0 0 60px var(--gc,rgba(13,122,62,.2))} 50%{box-shadow:0 0 50px var(--gc,rgba(13,122,62,.6)),0 0 100px var(--gc,rgba(13,122,62,.3))} }
+@keyframes shine  { 0%,100%{left:-60%} 50%{left:130%} }
+@keyframes slideIn{ from{transform:translateX(-16px);opacity:0} to{transform:translateX(0);opacity:1} }
+
+/* ── PAGE ── */
+.page { position:relative; z-index:1; max-width:480px; margin:0 auto; padding:0 15px 80px; }
+
+/* ══════════════════════════════════
+   STEP 1 — PATH SELECTOR
+══════════════════════════════════ */
+#s1 { display:block; }
+
+/* Hero */
+.hero { padding:24px 0 20px; text-align:center; animation:rise .5s ease both; }
+.hero-eyebrow { display:inline-flex; align-items:center; gap:7px; background:rgba(232,168,0,0.1); border:1px solid rgba(232,168,0,0.3); border-radius:7px; padding:6px 16px; margin-bottom:18px; }
+.he-dot { width:7px; height:7px; border-radius:50%; background:var(--gold2); animation:blink 1s infinite; box-shadow:0 0 6px var(--gold2); }
+.he-txt { font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold2); font-family:'DM Mono',monospace; }
+
+.hero h1 {
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(38px,10.5vw,58px);
+  font-weight:700; line-height:1.06;
+  margin-bottom:12px; color:var(--cream);
+}
+.hero h1 em { font-style:italic; color:var(--gold2); }
+.hero h1 .sky { color:var(--sky); }
+.hero h1 .grn { color:var(--g3); }
+
+.hero-sub { font-size:14px; color:var(--muted); line-height:1.8; max-width:360px; margin:0 auto; font-weight:500; }
+.hero-sub strong { color:var(--cream); font-weight:700; }
+
+/* Live stats bar */
+.live-bar {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:1px; background:rgba(255,255,255,0.05);
+  border-radius:16px; overflow:hidden; margin:20px 0;
+  animation:rise .5s .08s ease both;
+}
+.lb-item { background:rgba(0,0,0,0.4); padding:14px 6px; text-align:center; backdrop-filter:blur(8px); }
+.lb-val { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700; color:var(--gold2); line-height:1; }
+.lb-lbl { font-size:10px; font-weight:700; color:var(--muted); letter-spacing:.6px; text-transform:uppercase; margin-top:3px; font-family:'DM Mono',monospace; }
+
+/* ── PATH CARDS — the 3 entry points ── */
+.paths-label { font-size:14px; font-weight:800; text-align:center; color:var(--cream); margin-bottom:6px; animation:rise .5s .12s ease both; }
+.paths-sub { font-size:11px; color:var(--muted); text-align:center; font-family:'DM Mono',monospace; margin-bottom:18px; animation:rise .5s .14s ease both; }
+
+.paths { display:flex; flex-direction:column; gap:12px; animation:rise .5s .16s ease both; }
+
+.path-card {
+  border-radius:20px; padding:0;
+  cursor:pointer; text-decoration:none;
+  transition:transform .2s, box-shadow .2s;
+  position:relative; overflow:hidden;
+  border:1.5px solid var(--bd);
+  background:rgba(0,0,0,0.3);
+  backdrop-filter:blur(12px);
+  display:block;
+}
+.path-card:hover { transform:translateY(-3px); }
+.path-card:active { transform:scale(.98); }
+
+/* Colored top stripe per path */
+.path-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--path-color, var(--gold2));
+  animation:shimmer 3s linear infinite;
+}
+
+.pc-inner { display:flex; align-items:center; gap:14px; padding:18px 18px; }
+.pc-icon-wrap {
+  width:58px; height:58px; border-radius:16px;
+  background:var(--path-bg, rgba(232,168,0,0.12));
+  display:flex; align-items:center; justify-content:center;
+  font-size:30px; flex-shrink:0;
+  border:1px solid var(--path-bd, rgba(232,168,0,0.2));
+}
+.pc-body { flex:1; }
+.pc-tag { font-size:9px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; font-family:'DM Mono',monospace; margin-bottom:5px; color:var(--path-color, var(--gold2)); }
+.pc-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:700; color:var(--cream); line-height:1.2; margin-bottom:5px; }
+.pc-desc { font-size:12px; color:var(--muted); font-weight:600; line-height:1.5; }
+.pc-badge {
+  flex-shrink:0;
+  background:var(--path-bg, rgba(232,168,0,0.1));
+  border:1px solid var(--path-bd, rgba(232,168,0,0.2));
+  border-radius:100px; padding:6px 12px;
+  font-size:11px; font-weight:800; color:var(--path-color, var(--gold2));
+  white-space:nowrap; font-family:'DM Mono',monospace;
+}
+
+/* WAEC path — green */
+.path-waec {
+  --path-color: #1AAF58;
+  --path-bg: rgba(11,77,42,0.2);
+  --path-bd: rgba(26,175,88,0.2);
+}
+/* JAMB path — blue */
+.path-jamb {
+  --path-color: #64B5F6;
+  --path-bg: rgba(21,101,192,0.2);
+  --path-bd: rgba(100,181,246,0.2);
+}
+/* Admission path — gold */
+.path-admission {
+  --path-color: #E5A800;
+  --path-bg: rgba(184,134,11,0.15);
+  --path-bd: rgba(229,168,0,0.2);
+}
+
+/* ══════════════════════════════════
+   STEP 2 — VERIFYING
+══════════════════════════════════ */
+#s2 { display:none; }
+.verify-wrap { padding:70px 20px; text-align:center; animation:rise .5s ease both; }
+.verify-ring {
+  width:100px; height:100px; border-radius:50%;
+  margin:0 auto 28px; display:flex; align-items:center; justify-content:center;
+  position:relative;
+  box-shadow:0 0 0 10px rgba(13,122,62,0.1), 0 0 0 20px rgba(13,122,62,0.05);
+}
+.verify-ring-bg { position:absolute; inset:0; border-radius:50%; animation:spin 1.2s linear infinite; }
+.verify-ring-bg::before { content:''; position:absolute; inset:0; border-radius:50%; border:3px solid transparent; border-top-color:var(--gold2); border-right-color:var(--g3); }
+.verify-emoji { font-size:42px; position:relative; z-index:1; }
+.verify-wrap h2 { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:700; margin-bottom:8px; color:var(--cream); }
+.verify-path-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(0,0,0,0.3); border:1px solid var(--bd); border-radius:100px; padding:8px 18px; margin-bottom:20px; font-size:14px; font-weight:700; color:var(--cream); }
+.verify-wrap p { font-size:12px; color:var(--muted); font-family:'DM Mono',monospace; margin-bottom:28px; letter-spacing:.5px; }
+.vlog { max-width:290px; margin:0 auto; display:flex; flex-direction:column; gap:10px; text-align:left; }
+.vl { display:flex; align-items:center; gap:10px; font-family:'DM Mono',monospace; font-size:12px; color:rgba(248,244,232,0.2); transition:color .3s; }
+.vl.active { color:var(--cream); }
+.vl.done   { color:var(--g3); }
+.vl-sq { width:7px; height:7px; border-radius:2px; background:rgba(13,122,62,0.2); flex-shrink:0; transition:all .3s; }
+.vl.active .vl-sq { background:var(--gold2); box-shadow:0 0 8px var(--gold2); animation:blink .8s infinite; }
+.vl.done   .vl-sq { background:var(--g3); }
+
+/* ══════════════════════════════════
+   STEP 3 — SHARE / VERIFICATION WALL
+══════════════════════════════════ */
+#s3 { display:none; }
+
+.sw-hero { text-align:center; padding:24px 0 18px; animation:rise .5s ease both; }
+.sw-seal {
+  width:74px; height:74px; border-radius:50%;
+  margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:36px; animation:float 3s ease-in-out infinite;
+  border:2px solid rgba(232,168,0,0.3);
+  box-shadow:0 0 0 8px rgba(13,122,62,0.1);
+}
+.sw-hero h2 { font-family:'Cormorant Garamond',serif; font-size:30px; font-weight:700; color:var(--gold2); margin-bottom:8px; }
+.sw-hero p  { font-size:13px; color:var(--muted); line-height:1.75; max-width:320px; margin:0 auto; font-weight:500; }
+.sw-hero p strong { color:var(--cream); }
+
+/* What they unlock — 2×2 */
+.unlock-preview {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:8px; margin-bottom:18px;
+  animation:rise .5s .05s ease both;
+}
+.up-card { border-radius:13px; padding:13px 13px; backdrop-filter:blur(8px); border:1px solid var(--bd); }
+.up-card.green { background:rgba(11,77,42,0.25); border-color:rgba(26,175,88,0.15); }
+.up-card.blue  { background:rgba(21,101,192,0.2); border-color:rgba(100,181,246,0.15); }
+.up-card.gold  { background:rgba(184,134,11,0.15); border-color:rgba(232,168,0,0.15); }
+.up-card.dark  { background:rgba(0,0,0,0.3); }
+.up-icon  { font-size:20px; display:block; margin-bottom:6px; }
+.up-title { font-size:13px; font-weight:700; color:var(--cream); margin-bottom:2px; }
+.up-sub   { font-size:11px; color:var(--muted); font-weight:600; }
+
+/* Verification form card */
+.vform {
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(232,168,0,0.2);
+  border-radius:20px; overflow:hidden;
+  margin-bottom:14px;
+  animation:rise .5s .1s ease both;
+}
+.vform-header {
+  padding:16px 18px;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  display:flex; align-items:center; gap:12px;
+}
+.vfh-icon { width:38px; height:38px; border-radius:10px; background:rgba(232,168,0,0.15); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.vfh-title { font-size:14px; font-weight:800; color:var(--cream); }
+.vfh-sub   { font-size:11px; color:var(--muted); font-family:'DM Mono',monospace; margin-top:1px; }
+.vfh-ref   { margin-left:auto; font-size:10px; font-family:'DM Mono',monospace; color:rgba(232,168,0,0.5); text-align:right; flex-shrink:0; }
+
+.vform-body { padding:18px 18px; }
+.prog-top { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
+.prog-lbl { font-size:10px; font-weight:700; color:rgba(232,168,0,0.35); letter-spacing:2px; text-transform:uppercase; font-family:'DM Mono',monospace; }
+.prog-num { font-family:'Cormorant Garamond',serif; font-size:38px; font-weight:700; color:var(--gold2); line-height:1; }
+.prog-track { height:10px; background:rgba(0,0,0,0.5); border-radius:100px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); margin-bottom:18px; }
+.prog-fill  { height:100%; background:linear-gradient(90deg, var(--g2), var(--g3)); border-radius:100px; width:0%; transition:width .7s cubic-bezier(.34,1.56,.64,1); }
+
+.steps5 { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-bottom:18px; }
+.sn { aspect-ratio:1; border-radius:50%; background:rgba(0,0,0,0.4); border:1.5px solid rgba(255,255,255,0.07); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:700; color:rgba(248,244,232,0.15); font-family:'DM Mono',monospace; transition:all .35s; position:relative; }
+.sn.done { background:rgba(13,122,62,0.4); border-color:rgba(26,175,88,0.4); }
+.sn.done::after { content:'✓'; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:15px; color:var(--g3); }
+.sn.done span { display:none; }
+
+/* Instruction steps */
+.instructions { background:rgba(13,122,62,0.1); border:1px solid rgba(13,122,62,0.2); border-radius:14px; padding:16px 16px; margin-bottom:14px; }
+.inst-step { display:flex; align-items:flex-start; gap:11px; margin-bottom:12px; }
+.inst-step:last-child { margin-bottom:0; }
+.inst-num { width:26px; height:26px; border-radius:50%; background:var(--g2); color:#fff; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; flex-shrink:0; margin-top:1px; }
+.inst-text { font-size:13px; font-weight:600; color:rgba(248,244,232,0.75); line-height:1.6; }
+.inst-text strong { color:var(--cream); }
+
+/* THE SHARE BUTTON */
+.btn-verify {
+  width:100%; padding:17px;
+  background:var(--wa); color:#fff; border:none;
+  border-radius:14px; cursor:pointer;
+  display:flex; align-items:center; gap:12px;
+  transition:transform .15s, box-shadow .15s;
+  box-shadow:0 8px 30px rgba(37,211,102,0.35);
+  margin-bottom:8px; position:relative; overflow:hidden;
+}
+.btn-verify::before { content:''; position:absolute; top:-50%; left:-60%; width:30%; height:200%; background:rgba(255,255,255,0.2); transform:skewX(-20deg); animation:shine 4s ease-in-out infinite; }
+.btn-verify:hover { transform:translateY(-2px); box-shadow:0 12px 44px rgba(37,211,102,0.5); }
+.btn-verify:active { transform:scale(.98); }
+.bv-icon { font-size:22px; flex-shrink:0; }
+.bv-body { text-align:left; flex:1; }
+.bv-title { font-size:15px; font-weight:800; display:block; color:#fff; }
+.bv-sub   { font-size:11px; opacity:.8; font-weight:600; display:block; margin-top:1px; color:#fff; }
+
+/* Status toast inside form */
+.vform-status { background:rgba(13,122,62,0.2); border:1px solid rgba(13,122,62,0.3); border-radius:9px; padding:9px 13px; font-size:12px; font-weight:700; color:var(--g3); text-align:center; font-family:'DM Mono',monospace; display:none; margin-top:8px; }
+.vform-status.show { display:block; }
+
+.ghost { text-align:center; padding:4px 0 18px; color:#06090F; font-size:12px; user-select:none; font-family:'DM Mono',monospace; }
+.ghost strong { color:#06090F; }
+
+.tips-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:7px; margin-bottom:24px; }
+.tip { background:rgba(0,0,0,0.3); border:1px solid var(--bd); border-radius:10px; padding:10px 8px; font-size:11px; font-weight:600; color:rgba(248,244,232,0.25); line-height:1.5; text-align:center; }
+.tip .ti { font-size:16px; display:block; margin-bottom:4px; }
+
+/* ══════════════════════════════════
+   STEP 4 — UNLOCK
+══════════════════════════════════ */
+#s4 { display:none; }
+.unlock { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:40px 0; text-align:center; }
+.unlock-halo {
+  width:130px; height:130px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 20px;
+  background:linear-gradient(135deg, var(--g1), var(--g2));
+  border:2px solid rgba(232,168,0,0.4);
+  box-shadow:0 0 0 14px rgba(13,122,62,0.1), 0 0 0 28px rgba(13,122,62,0.05), 0 0 60px rgba(13,122,62,0.3);
+  --gc:rgba(13,122,62,.4);
+  animation:glow 2s ease-in-out infinite;
+}
+.unlock-icon { font-size:58px; animation:pop .6s cubic-bezier(.34,1.56,.64,1) both; }
+.unlock h2 { font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:700; color:var(--gold2); margin-bottom:8px; text-shadow:0 0 30px rgba(232,168,0,0.4); }
+.unlock-sub { font-size:15px; color:var(--muted); line-height:1.75; margin-bottom:28px; max-width:300px; font-weight:500; }
+.unlock-sub strong { color:var(--cream); }
+
+.unlock-btns { display:flex; flex-direction:column; gap:10px; width:100%; margin-bottom:16px; }
+.btn-cta {
+  display:block; width:100%; padding:21px;
+  background:linear-gradient(135deg, var(--g1), var(--g2), var(--g3));
+  color:var(--cream); border:none; border-radius:18px;
+  font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:700;
+  cursor:pointer; text-decoration:none; text-align:center;
+  box-shadow:0 10px 40px rgba(13,122,62,0.5);
+  --gc:rgba(13,122,62,.4);
+  animation:glow 2s ease-in-out infinite;
+  transition:transform .15s; position:relative; overflow:hidden;
+  border:1px solid rgba(232,168,0,0.3);
+}
+.btn-cta::before { content:''; position:absolute; top:-50%; left:-60%; width:30%; height:200%; background:rgba(255,255,255,0.15); transform:skewX(-20deg); animation:shine 2.5s ease-in-out infinite; }
+.btn-cta:hover { transform:translateY(-3px); }
+
+.btn-tg {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; padding:15px; background:var(--tg); color:#fff;
+  border:none; border-radius:15px;
+  font-family:'Bricolage Grotesque',sans-serif; font-size:15px; font-weight:800;
+  cursor:pointer; text-decoration:none;
+  box-shadow:0 6px 24px rgba(42,171,238,0.3); transition:transform .15s;
+}
+.btn-tg:hover { transform:translateY(-2px); }
+
+/* Share again */
+.share-again-strip {
+  background:rgba(0,0,0,0.3); border:1px solid var(--bd);
+  border-radius:14px; padding:14px 16px;
+  display:flex; align-items:center; gap:12px; margin-bottom:10px;
+}
+.sa-body { flex:1; }
+.sa-title { font-size:13px; font-weight:800; color:var(--cream); margin-bottom:2px; }
+.sa-sub   { font-size:11px; color:var(--muted); font-weight:600; }
+.btn-sa   { padding:10px 14px; background:var(--wa); color:#fff; border:none; border-radius:10px; font-size:13px; font-weight:800; cursor:pointer; flex-shrink:0; }
+
+.un-note { font-size:11px; color:rgba(248,244,232,0.15); font-family:'DM Mono',monospace; }
+
+/* ── LOCK ── */
+#lock { position:fixed; inset:0; background:#000; display:none; align-items:center; justify-content:center; flex-direction:column; gap:12px; z-index:99999; }
+#lock h2 { color:var(--red); font-size:18px; }
+#lock p  { color:#333; font-size:13px; }
+
+.toast { position:fixed; bottom:22px; left:50%; transform:translateX(-50%) translateY(80px); background:var(--bg); border:1.5px solid var(--g3); color:var(--g3); padding:11px 22px; border-radius:100px; font-size:13px; font-weight:700; transition:transform .45s cubic-bezier(.34,1.56,.64,1); z-index:9999; white-space:nowrap; font-family:'DM Mono',monospace; }
+.toast.show { transform:translateX(-50%) translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="bg-dots"></div>
+<div class="orb1"></div><div class="orb2"></div><div class="orb3"></div>
+
+<!-- NOTIFICATIONS -->
+<div class="notif-zone" id="notifZone"></div>
+
+<div id="lock"><h2>⚠️ Unauthorized</h2><p>Only accessible at the official link.</p></div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ti">
+    <span>WAEC 2026 EXPO — ANSWERS 5HRS BEFORE EXAM</span>
+    <span>JAMB POST-UTME SCREENING PREP — START NOW</span>
+    <span>ADMISSION HELP — WE ASSIST YOU GET IN</span>
+    <span>120,000+ CANDIDATES ACCESSING TODAY</span>
+    <span>WAEC 2026 EXPO — ANSWERS 5HRS BEFORE EXAM</span>
+    <span>JAMB POST-UTME SCREENING PREP — START NOW</span>
+    <span>ADMISSION HELP — WE ASSIST YOU GET IN</span>
+    <span>120,000+ CANDIDATES ACCESSING TODAY</span>
+  </div>
+</div>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div class="hdr-gold"></div>
+  <div class="hdr-body">
+    <div class="hdr-brand">
+      <div class="hdr-seal">🎓</div>
+      <div>
+        <div class="hdr-t1">2026 Candidate Support Hub</div>
+        <div class="hdr-t2">WAEC · JAMB · Admission</div>
+      </div>
+    </div>
+    <div class="hdr-right">
+      <div class="hdr-live"><div class="hdr-dot"></div><div class="hdr-ltxt">ONLINE</div></div>
+      <div class="hdr-num" id="liveNum">120,841</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ══ STEP 1 ══ -->
+<div id="s1">
+  <div class="hero">
+    <div class="hero-eyebrow"><div class="he-dot"></div><span class="he-txt">2026 — All Candidates Welcome</span></div>
+    <h1>
+      Your <em>2026 Success</em><br>
+      Starts <span class="sky">Right</span> <span class="grn">Here</span>
+    </h1>
+    <p class="hero-sub">
+      <strong>WAEC expo. JAMB post-UTME prep. Admission assistance.</strong><br>
+      Select what you need below — free access, right now.
+    </p>
+  </div>
+
+  <div class="live-bar">
+    <div class="lb-item"><div class="lb-val" id="stCnt">120K+</div><div class="lb-lbl">Candidates</div></div>
+    <div class="lb-item"><div class="lb-val">3</div><div class="lb-lbl">Services</div></div>
+    <div class="lb-item"><div class="lb-val">Free</div><div class="lb-lbl">Access</div></div>
+  </div>
+
+  <div class="paths-label">What Do You Need Help With?</div>
+  <div class="paths-sub">// tap your situation below //</div>
+
+  <div class="paths">
+
+    <!-- PATH 1: WAEC -->
+    <div class="path-card path-waec" onclick="selectPath('waec')">
+      <div class="pc-inner">
+        <div class="pc-icon-wrap">📚</div>
+        <div class="pc-body">
+          <div class="pc-tag">WAEC 2026</div>
+          <div class="pc-title">I Need WAEC Expo Answers</div>
+          <div class="pc-desc">Get verified answers 5 hours before your exam — English, Maths, Biology, Chemistry & more</div>
+        </div>
+        <div class="pc-badge">5hrs Early</div>
+      </div>
+    </div>
+
+    <!-- PATH 2: JAMB -->
+    <div class="path-card path-jamb" onclick="selectPath('jamb')">
+      <div class="pc-inner">
+        <div class="pc-icon-wrap">📋</div>
+        <div class="pc-body">
+          <div class="pc-tag">JAMB 2026</div>
+          <div class="pc-title">I Need Post-UTME Prep Help</div>
+          <div class="pc-desc">Check your score eligibility, get post-UTME past questions, and prepare for screening</div>
+        </div>
+        <div class="pc-badge">Score Check</div>
+      </div>
+    </div>
+
+    <!-- PATH 3: ADMISSION -->
+    <div class="path-card path-admission" onclick="selectPath('admission')">
+      <div class="pc-inner">
+        <div class="pc-icon-wrap">🏛️</div>
+        <div class="pc-body">
+          <div class="pc-tag">Admission Help</div>
+          <div class="pc-title">I Need Help Getting Admitted</div>
+          <div class="pc-desc">Confused about admission? Get personal guidance on which school to apply to and how to get in</div>
+        </div>
+        <div class="pc-badge">Personal Help</div>
+      </div>
+    </div>
+
+  </div>
+</div><!-- /s1 -->
+
+<!-- ══ STEP 2 ══ -->
+<div id="s2">
+  <div class="verify-wrap">
+    <div class="verify-ring">
+      <div class="verify-ring-bg"></div>
+      <div class="verify-emoji" id="verifyEmoji">📚</div>
+    </div>
+    <div class="verify-path-badge" id="verifyBadge">🎓 Loading...</div>
+    <h2>Processing your request...</h2>
+    <p>Matching you with the right resources. Please wait.</p>
+    <div class="vlog">
+      <div class="vl" id="vl1"><div class="vl-sq"></div>AUTH: verifying candidate</div>
+      <div class="vl" id="vl2"><div class="vl-sq"></div>FETCH: loading resources</div>
+      <div class="vl" id="vl3"><div class="vl-sq"></div>MATCH: finding best support</div>
+      <div class="vl" id="vl4"><div class="vl-sq"></div>READY: preparing your package</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ STEP 3 ══ -->
+<div id="s3">
+
+  <div class="sw-hero">
+    <div class="sw-seal" id="swSeal">📋</div>
+    <h2 id="swTitle">Your Package Is Ready!</h2>
+    <p id="swDesc">To unlock your resources and <strong>protect the source</strong>, send this portal to <strong>10 candidates</strong> via WhatsApp. Unlocks automatically.</p>
+  </div>
+
+  <!-- What unlocks -->
+  <div class="unlock-preview" id="unlockPreview">
+    <!-- filled by JS based on path -->
+  </div>
+
+  <div class="vform">
+    <div class="vform-header">
+      <div class="vfh-icon">🔐</div>
+      <div>
+        <div class="vfh-title">WhatsApp Verification</div>
+        <div class="vfh-sub">2026 Candidate Hub · Access Portal</div>
+      </div>
+      <div class="vfh-ref">REF: <span id="refNum">——</span><br>Status: <span style="color:var(--gold2)">PENDING</span></div>
+    </div>
+
+    <div class="vform-body">
+      <div class="prog-top">
+        <span class="prog-lbl">Verifications</span>
+        <span class="prog-num" id="progNum">0/10</span>
+      </div>
+      <div class="prog-track"><div class="prog-fill" id="progFill"></div></div>
+      <div class="steps5" id="stepsG"></div>
+
+      <div class="instructions">
+        <div class="inst-step">
+          <div class="inst-num">1</div>
+          <div class="inst-text">Tap <strong>"Send Verification"</strong> — WhatsApp opens with a message ready to send</div>
+        </div>
+        <div class="inst-step">
+          <div class="inst-num">2</div>
+          <div class="inst-text">Forward to <strong>10 different contacts or groups</strong> — this verifies your identity to unlock access</div>
+        </div>
+        <div class="inst-step">
+          <div class="inst-num">3</div>
+          <div class="inst-text">Return here after each forward and tap again — <strong>auto-unlocks after 10</strong></div>
+        </div>
+      </div>
+
+      <button class="btn-verify" onclick="doShare()">
+        <span class="bv-icon">📲</span>
+        <div class="bv-body">
+          <span class="bv-title">Send Verification via WhatsApp</span>
+          <span class="bv-sub" id="swSubtxt">Step 1 of 10 — Tap to open WhatsApp</span>
+        </div>
+      </button>
+
+      <div class="vform-status" id="vformStatus">✅ Verification logged — send to next contact</div>
+    </div>
+  </div>
+
+  <div class="ghost"><strong id="ghostNum">120,841</strong> candidates verified today</div>
+
+  <div class="tips-row">
+    <div class="tip"><span class="ti">🔐</span>Protects the source</div>
+    <div class="tip"><span class="ti">⚡</span>Auto-unlocks at 10</div>
+    <div class="tip"><span class="ti">🤝</span>Friends get access too</div>
+  </div>
+
+</div><!-- /s3 -->
+
+<!-- ══ STEP 4 ══ -->
+<div id="s4">
+  <div class="unlock">
+    <div class="unlock-halo"><span class="unlock-icon">🏆</span></div>
+    <h2>Unlocked!</h2>
+    <p class="unlock-sub">Your <strong id="unlockLabel">2026 support package</strong> is ready. Tap below to access it now.</p>
+
+    <div class="unlock-btns">
+      <a class="btn-cta" href="https://omg10.com/4/10659981" target="_blank">
+        🔥 Access Your Package Now
+      </a>
+      <a class="btn-tg" href="https://t.me/kingsamtoclef" target="_blank">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Join Telegram — Get Direct Support
+      </a>
+    </div>
+
+    <div class="share-again-strip">
+      <div class="sa-body">
+        <div class="sa-title">Help a fellow candidate 🙏</div>
+        <div class="sa-sub">Send them this hub — they need it too</div>
+      </div>
+      <button class="btn-sa" onclick="shareAgain()">Send 📲</button>
+    </div>
+
+    <p class="un-note">// 2026 candidate hub · free · jamb-waec-help.vercel.app //</p>
+  </div>
+</div>
+
+</div><!-- /page -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* DOMAIN LOCK */
+(function(){
+  const OK=['jamb-waec-help.vercel.app','localhost','127.0.0.1'];
+  if(!OK.some(d=>location.hostname===d||location.hostname.endsWith('.'+d))){
+    document.getElementById('lock').style.display='flex';
+    document.body.style.overflow='hidden';
+  }
+})();
+
+/* ANTI-COPY */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+document.addEventListener('keydown',e=>{if(e.key==='F12'||(e.ctrlKey&&['u','U','s','S'].includes(e.key))||(e.ctrlKey&&e.shiftKey&&'iIjJcC'.includes(e.key)))e.preventDefault();});
+document.addEventListener('copy',e=>e.preventDefault());
+document.addEventListener('cut',e=>e.preventDefault());
+
+/* CONFIG */
+const SITE='https://jamb-waec-help.vercel.app';
+const BACK='https://omg10.com/4/4105256';
+const CTA ='https://omg10.com/4/10659981';
+const TG  ='https://t.me/kingsamtoclef';
+const REQ =10;
+
+/* PATH DATA */
+const PATHS = {
+  waec: {
+    emoji:'📚', label:'📚 WAEC 2026 Expo',
+    swSeal:'📚', swTitle:'Your WAEC Expo Is Ready!',
+    swDesc:'To unlock your answers and protect the source, send this portal to 10 WAEC candidates via WhatsApp.',
+    unlockLabel:'WAEC 2026 expo package',
+    preview:[
+      {cls:'green',icon:'📝',title:'English & Maths',sub:'Full answers + solutions'},
+      {cls:'green',icon:'🧬',title:'Sciences',sub:'Biology, Chem, Physics'},
+      {cls:'gold',icon:'📊',title:'Commercials',sub:'Economics, Accounts'},
+      {cls:'dark',icon:'⏰',title:'5hrs Early',sub:'Before exam starts'},
+    ],
+    waMsg:`📚 *WAEC 2026 — Get Your Answers 5 Hours Before Exam!*\n\nVerified answers for all subjects. English, Maths, Biology, Chemistry & more.\n\nAccess yours here 👇\n${SITE}\n\n✅ WAEC · JAMB · Admission Help\n⚠️ Share privately — candidates only!`,
+  },
+  jamb: {
+    emoji:'📋', label:'📋 JAMB Post-UTME Prep',
+    swSeal:'📋', swTitle:'Your JAMB Package Is Ready!',
+    swDesc:'To unlock your post-UTME prep materials and score checker, send this portal to 10 JAMB candidates via WhatsApp.',
+    unlockLabel:'JAMB post-UTME prep package',
+    preview:[
+      {cls:'blue',icon:'🎯',title:'Score Checker',sub:'Check your eligibility'},
+      {cls:'blue',icon:'📝',title:'Post-UTME Past Q',sub:'Practice questions'},
+      {cls:'gold',icon:'🏫',title:'School Matcher',sub:'Best schools for you'},
+      {cls:'dark',icon:'⏰',title:'Screening Dates',sub:'2026 deadlines'},
+    ],
+    waMsg:`📋 *JAMB 2026 — Post-UTME Prep & Score Checker*\n\nCheck if your JAMB score qualifies for post-UTME + get prep materials!\n\nAccess here 👇\n${SITE}\n\n✅ WAEC · JAMB · Admission Help\n⚠️ Share privately — candidates only!`,
+  },
+  admission: {
+    emoji:'🏛️', label:'🏛️ Admission Assistance',
+    swSeal:'🏛️', swTitle:'Admission Help Unlocked!',
+    swDesc:'To connect with our admission team and unlock your guidance package, send this portal to 10 candidates via WhatsApp.',
+    unlockLabel:'personal admission guidance package',
+    preview:[
+      {cls:'gold',icon:'🤝',title:'Personal Guidance',sub:'Direct support from us'},
+      {cls:'blue',icon:'🏫',title:'School Selection',sub:'We help you choose'},
+      {cls:'green',icon:'📋',title:'Application Help',sub:'Step-by-step process'},
+      {cls:'dark',icon:'💡',title:'Low Score Options',sub:'We find alternatives'},
+    ],
+    waMsg:`🏛️ *2026 Admission Help — We Assist You Get Admitted!*\n\nStruggling with admission? Get personal guidance on which school to apply to and how to get in.\n\nAccess here 👇\n${SITE}\n\n✅ WAEC · JAMB · Admission Help\n⚠️ Share privately — candidates only!`,
+  }
+};
+
+/* AGGRESSIVE BACKTRAP */
+(function(){
+  history.pushState(null,'',location.href);
+  history.pushState(null,'',location.href);
+  history.pushState(null,'',location.href);
+  window.addEventListener('popstate',function(){
+    history.pushState(null,'',location.href);
+    window.location.href=BACK;
+  });
+})();
+
+/* LIVE COUNTER */
+let cnt=120841;
+setInterval(()=>{
+  cnt+=Math.floor(Math.random()*5)+1;
+  const f=cnt.toLocaleString('en-NG');
+  ['liveNum','ghostNum'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=f;});
+  const sc=document.getElementById('stCnt');if(sc)sc.textContent=Math.floor(cnt/1000)+'K+';
+},Math.random()*2000+1800);
+
+/* NOTIFICATIONS */
+const NOTIFS=[
+  {av:'👩🏾',name:'Ada C.',time:'just now',msg:`Just unlocked WAEC expo — <span class='ng'>English answers confirmed!</span> 😭🙏`},
+  {av:'👩🏽',name:'Pearl O.',time:'1m ago',msg:`JAMB score check done. <span class='nb'>Qualified for post-UTME!</span> 🔥`},
+  {av:'👨🏾',name:'Tunde A.',time:'2m ago',msg:`Admission team helped me. <span class='nh'>Got admitted into UNILAG!</span> 🙌`},
+  {av:'👩🏿',name:'Peace E.',time:'1m ago',msg:`Biology expo <span class='ng'>100% accurate.</span> This portal is real ✅`},
+  {av:'👩🏾',name:'Chioma N.',time:'3m ago',msg:`Post-UTME past questions unlocked. <span class='nb'>Ready for screening!</span> 😭❤️`},
+  {av:'👨🏿',name:'Bello M.',time:'2m ago',msg:`Got admission help for my score. <span class='nh'>They found me a school!</span> 🔥`},
+  {av:'👩🏽',name:'Funmi A.',time:'4m ago',msg:`Maths expo was <span class='ng'>spot on.</span> My class is ready 🙏`},
+  {av:'👨🏾',name:'Emeka J.',time:'1m ago',msg:`Verified and unlocked. <span class='nb'>JAMB package is detailed!</span> 🔥`},
+  {av:'👩🏾',name:'Ngozi K.',time:'3m ago',msg:`10 verifications done. <span class='ng'>WAEC answers unlocked!</span> 😭`},
+  {av:'👨🏽',name:'Seun B.',time:'just now',msg:`Admission guidance is <span class='nh'>real and helpful.</span> They replied fast! 🙌`},
+];
+
+let ni=0, activeNotif=null;
+const nZone=document.getElementById('notifZone');
+
+function showNotif(){
+  if(ni>=NOTIFS.length)ni=0;
+  const n=NOTIFS[ni++];
+  if(activeNotif){activeNotif.classList.add('hide');setTimeout(()=>{if(activeNotif&&activeNotif.parentNode)activeNotif.remove();activeNotif=null;},350);}
+  const el=document.createElement('div');
+  el.className='notif';
+  el.innerHTML=`<div class="n-av">${n.av}</div><div class="n-body"><div class="n-badge">2026 Candidate Hub · Update</div><div class="n-top"><div class="n-name">${n.name}</div><div class="n-time">${n.time}</div></div><div class="n-msg">${n.msg}</div></div>`;
+  nZone.appendChild(el);activeNotif=el;
+  setTimeout(()=>el.classList.add('show'),50);
+  setTimeout(()=>{el.classList.add('hide');setTimeout(()=>{if(el.parentNode)el.remove();if(activeNotif===el)activeNotif=null;},400);},4200);
+}
+setTimeout(()=>{showNotif();setInterval(showNotif,Math.random()*4000+6000);},2500);
+
+/* STATE */
+let curPath='waec', shares=0;
+
+/* SELECT PATH */
+function selectPath(path){
+  curPath=path;
+  const P=PATHS[path];
+  document.getElementById('verifyEmoji').textContent=P.emoji;
+  document.getElementById('verifyBadge').textContent=P.label;
+  document.getElementById('s1').style.display='none';
+  document.getElementById('s2').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  const steps=['vl1','vl2','vl3','vl4'];let i=0;
+  function tick(){
+    if(i>0){const p=document.getElementById(steps[i-1]);p.classList.remove('active');p.classList.add('done');}
+    if(i<steps.length){document.getElementById(steps[i]).classList.add('active');i++;setTimeout(tick,900);}
+    else setTimeout(()=>goWall(P),500);
+  }
+  tick();
+}
+
+/* GO WALL */
+function goWall(P){
+  document.getElementById('s2').style.display='none';
+  document.getElementById('s3').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  document.getElementById('swSeal').textContent=P.swSeal;
+  document.getElementById('swTitle').textContent=P.swTitle;
+  document.getElementById('swDesc').innerHTML=P.swDesc.replace('10','<strong>10</strong>');
+
+  // Fill preview
+  const prev=document.getElementById('unlockPreview');
+  prev.innerHTML='';
+  P.preview.forEach(c=>{
+    prev.innerHTML+=`<div class="up-card ${c.cls}"><span class="up-icon">${c.icon}</span><div class="up-title">${c.title}</div><div class="up-sub">${c.sub}</div></div>`;
+  });
+
+  // Ref number
+  document.getElementById('refNum').textContent='HUB-2026-'+Math.floor(100000+Math.random()*900000);
+
+  // Build steps
+  shares=0;
+  const g=document.getElementById('stepsG');g.innerHTML='';
+  for(let i=1;i<=REQ;i++)g.innerHTML+=`<div class="sn" id="sn${i}"><span>${i}</span></div>`;
+  document.getElementById('progNum').textContent=`0/${REQ}`;
+  document.getElementById('swSubtxt').textContent=`Step 1 of ${REQ} — Tap to open WhatsApp`;
+}
+
+/* SHARE */
+function doShare(){
+  const P=PATHS[curPath];
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(P.waMsg)}`,'_blank');
+  setTimeout(()=>{
+    if(shares>=REQ)return;
+    shares++;
+    document.getElementById('progFill').style.width=`${(shares/REQ)*100}%`;
+    document.getElementById('progNum').textContent=`${shares}/${REQ}`;
+    const rem=REQ-shares;
+    document.getElementById('swSubtxt').textContent=rem>0?`Step ${shares+1} of ${REQ} — ${rem} verification${rem>1?'s':''} remaining`:'All verifications complete!';
+    const n=document.getElementById('sn'+shares);if(n)n.classList.add('done');
+    const st=document.getElementById('vformStatus');
+    st.textContent=`✅ Verification ${shares}/${REQ} logged — ${rem>0?'send to next contact':'unlocking now...'}`;
+    st.classList.add('show');setTimeout(()=>st.classList.remove('show'),3000);
+    showToast(`✅ Verification ${shares}/${REQ} confirmed!`);
+    if(shares>=REQ)setTimeout(unlock,1200);
+  },1800);
+}
+
+/* UNLOCK */
+function unlock(){
+  const P=PATHS[curPath];
+  document.getElementById('s3').style.display='none';
+  document.getElementById('s4').style.display='block';
+  document.getElementById('unlockLabel').textContent=P.unlockLabel;
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* SHARE AGAIN */
+function shareAgain(){
+  const P=PATHS[curPath];
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(P.waMsg)}`,'_blank');
+}
+
+function showToast(m){
+  const t=document.getElementById('toast');t.textContent=m;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+</script>
+</body>
+</html>
